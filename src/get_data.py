@@ -1,5 +1,3 @@
-import pandas as pd
-import numpy as np
 
 def get_data(dataset_switch = 'linear'):
     """
@@ -9,6 +7,9 @@ def get_data(dataset_switch = 'linear'):
     even_spacing
     pups
     """
+
+    import numpy as np
+    import pandas as pd
 
     # making our dataset with a few different switches or options
     if dataset_switch == 'linear':
@@ -37,11 +38,9 @@ def get_data(dataset_switch = 'linear'):
         X = np.linspace(-2.0, 3.0, num=100)
         y = 40*X
     elif dataset_switch == 'pups':
-        pups_df = pd.read_csv('pupSlice.csv',header=None)
+        pups_df = pd.read_csv('../Resources/pupSlice.csv',header=None)
         X = np.arange(1,3024+1)
         y = pups_df[0].values
-
-    import pandas as pd
 
     df = pd.DataFrame({
         'x':X,
